@@ -1,0 +1,91 @@
+<!--index.wxml-->
+<view class="load" style="display:{{zhezhao}};">
+    <view class="loadz">
+      <view class="loaddik">
+        <view class="loaddid" style="width:{{allimgload}}%"></view>
+      </view>
+    </view>
+    <block wx:for="{{allimg}}" wx:for-item="img" wx:key="ind">    
+      <image src="{{img}}" bindload="loadImgs"></image>
+    </block>
+  
+</view>
+<view class="listk" style="display:{{loadOver}};background-image:url(http://www.twobyoung.com/ether/img/index/back.jpg);{{setWidthH}}">
+  <view class="listd">
+  <image src="http://www.twobyoung.com/ether/img/index/dz3.png" mode="widthFix" class="listz_dz3 {{musicCtrl}}" bind:touchstart="ctrlMusic"></image>
+    <view class="listd_tit">
+      <span style="background-image:url(http://www.twobyoung.com/ether/img/index/title.png);">欢迎参加记忆之声XXX活动</span>
+    </view>
+    <image  class="listd_bot" src="http://www.twobyoung.com/ether/img/index/enter.png" mode="widthFix" bind:touchstart="touchStartf" bind:touchend="touchEndf" style="{{touchjh}}"></image>
+   
+
+    <view class="listd_con">
+      <view class="listd_cok">
+        <view style="background-image:url(http://www.twobyoung.com/ether/img/logo/1.jpg);" class="icok">
+          <image src="http://www.twobyoung.com/ether/img/index/logokac.png"></image>
+        </view>
+        <view style="background-image:url(http://www.twobyoung.com/ether/img/logo/2.jpg);" class="icok">
+          <image src="http://www.twobyoung.com/ether/img/index/logok.png"></image>
+        </view>
+        <view style="background-image:url(http://www.twobyoung.com/ether/img/logo/3.jpg);" class="icok">
+          <image src="http://www.twobyoung.com/ether/img/index/logok.png"></image>
+        </view>
+        <view style="background-image:url(http://www.twobyoung.com/ether/img/logo/4.jpg);" class="icok">
+          <image src="http://www.twobyoung.com/ether/img/index/logok.png"></image>
+        </view>
+        <view style="background-image:url(http://www.twobyoung.com/ether/img/logo/5.jpg);" class="icok">
+          <image src="http://www.twobyoung.com/ether/img/index/logok.png"></image>
+        </view>
+        <view style="background-image:url(http://www.twobyoung.com/ether/img/logo/6.jpg);" class="icok">
+          <image src="http://www.twobyoung.com/ether/img/index/logok.png"></image>
+        </view>
+      </view>
+      <view class="listd_cok">
+        <view style="background-image:url(http://www.twobyoung.com/ether/img/logo/7.jpg);" class="icok">
+          <image src="http://www.twobyoung.com/ether/img/index/logok.png"></image>
+        </view>
+        <view style="background-image:url(http://www.twobyoung.com/ether/img/logo/8.jpg);" class="icok">
+          <image src="http://www.twobyoung.com/ether/img/index/logok.png"></image>
+        </view>
+        <view style="background-image:url(http://www.twobyoung.com/ether/img/logo/9.jpg);" class="icok">
+          <image src="http://www.twobyoung.com/ether/img/index/logok.png"></image>
+        </view>
+        <view style="background-image:url(http://www.twobyoung.com/ether/img/logo/10.jpg);" class="icok">
+          <image src="http://www.twobyoung.com/ether/img/index/logok.png"></image>
+        </view>
+        <view style="background-image:url(http://www.twobyoung.com/ether/img/logo/11.jpg);" class="icok">
+          <image src="http://www.twobyoung.com/ether/img/index/logok.png"></image>
+        </view>
+        <view style="background-image:url(http://www.twobyoung.com/ether/img/logo/12.jpg);" class="icok">
+          <image src="http://www.twobyoung.com/ether/img/index/logok.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="listd_mes">
+    <view class="listd_mesp" style="background-image:url(http://www.twobyoung.com/ether/img/index/but.png">活动进度：3/12</view>
+    <view class="listd_mesp" style="background-image:url(http://www.twobyoung.com/ether/img/index/but.png">活动规则</view>
+  </view>
+  
+  <!--背景点缀-->
+  <view class="listz">
+    <image src="http://www.twobyoung.com/ether/img/index/dz1.png" mode="widthFix" class="listz_dz1"></image>
+    <image src="http://www.twobyoung.com/ether/img/index/dz2.png" mode="widthFix" class="listz_dz2"></image>    
+    <image src="http://www.twobyoung.com/ether/img/index/dz4.png" mode="widthFix" class="listz_dz4"></image>
+    <image src="http://www.twobyoung.com/ether/img/index/dz5.png" mode="widthFix" class="listz_dz5"></image>
+    <image src="http://www.twobyoung.com/ether/img/index/dz6.png" mode="widthFix" class="listz_dz6"></image>
+    <image src="http://www.twobyoung.com/ether/img/index/dz7.png" mode="widthFix" class="listz_dz7"></image>
+    <image src="http://www.twobyoung.com/ether/img/index/dz8.png" mode="widthFix" class="listz_dz8"></image>
+    <image src="http://www.twobyoung.com/ether/img/index/dz5.png" mode="widthFix" class="listz_dz9"></image>
+    <image src="http://www.twobyoung.com/ether/img/index/dz8.png" mode="widthFix" class="listz_dz10"></image>
+
+  </view>
+<!--色子-->
+<view class="shaizik" style="display:{{showShaizi}};">
+  <view class="shaizi" style="background-image:url(http://www.twobyoung.com/ether/img/shaizi/{{numi}}.png);" ></view>
+</view>
+</view>
+
+<view class="musicplay" bind:touchstart="playmusic">
+  <audio src="http://www.twobyoung.com/ether/file/mus.mp3" autoplay loop id="music"></audio>
+</view>
