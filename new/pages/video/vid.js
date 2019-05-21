@@ -11,50 +11,105 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    wx.updateSHareMenu({//设置分享
+  onLoad: function (options) {    
+    wx.updateShareMenu({//设置分享
       success:function(){
-        console.log('成功：',arguments)
+       // console.log('成功：',arguments)
       },
       fail:function(){
-        console.log("失败：",arguments);
+       // console.log("失败：",arguments);
       }
-    });
-    var that=this;
-    wx.request({
-        url:"http://www.twobyoung.com/suport/index.php",
-        success:function(res){
-          console.log(res);
-          that.setData({
-            videoSrc:res.data
-          });
-        }
-    });
-  },
-
+    });   
+     },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function (){
     this.data.vid1=wx.createVideoContext("video");
-    console.log(this.data.vid1)
-    //this.data.vid1.play();
+    this.updataSrc();
   },
+  updataSrc:function(){
+    var that = this;
+    wx.request({
+      url: "http://192.168.31.211/suport/index.php",
+      success: function (res) {
+        console.log(res);
+        that.setData({
+          videoSrc: res.data
+        });
+        that.pauseVid();
+        that.checkNetWork();
+      }
+    });
+  },
+  checkNetWork:function(){
+    var that = this;
+    wx.getNetworkType({
+      success: function (res) {
+        var ty = res.networkType.toLowerCase();
+        if (ty != "wifi") {//非wifi
+          wx.showModal({//confirm消息点击框
+            title: "温馨提示",
+            content: "您目前正在4G模式下，观看视频会产生流量，您确定观看么？",
+            confirmText: "立即观看",
+            cancelText: "暂时不要",
+            success: function (res) {//点击观看
+              if (res.confirm) {
+                that.playVid();
+              } else {//返回首页
+                wx.navigateTo({ url: "../index/index" });
+              }
+            },
+            fail: function () {//调用失败              
+            }
+          });
+        } else {
+          that.playVid();
+        }
+      }
+    });
+  }, 
   playVid:function(){    
-    this.data.vid1.play();
-    console.log("play")
+    this.data.vid1.play();    
   },
   pauseVid:function(){    
-    this.data.vid1.pause();
-    console.log("pause")
+    this.data.vid1.pause();    
+  },
+  closeVid:function(){
+      var that=this;
+      this.data.vid1.pause();
+      wx.showModal({
+        title:"关闭视频？",
+        content:"关闭视频将无法完成任务，您确定关闭视频吗？",
+        cancelText:"关闭",
+        confirmText:"继续看",
+        success:function(res){
+          if(res.confirm){
+            that.data.vid1.play();
+          }else{
+            wx.navigateTo({ url: "../index/index" })
+          }          
+        },
+        fail:function(){          
+        }
+      });
+  },
+  playend: function () {
+    wx.showToast({//layer.msg类的提示框，自动隐藏
+      title: "任务完成",
+      icon: "success",
+      duration: 1500,
+      success: function () {
+        setTimeout(() => { wx.navigateBack(2); }, 1500);
+      }
+    });
   },
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
 
-  },
-
+  }, 
   /**
    * 生命周期函数--监听页面隐藏
    */

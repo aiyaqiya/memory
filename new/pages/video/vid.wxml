@@ -1,11 +1,9 @@
 <!--pages/video/vid.wxml-->
 <view class="vid">
-  <video src="{{videoSrc}}" id="video" controls="false">
-  </video>
-  
-    <view class="vidplay">
-      <span bindtap="playVid">播放</span>
-      <span bindtap="pauseVid">暂停</span>
+  <video src="{{videoSrc}}" id="video" controls="{{false}}" bindended="playend"><!--controls一定要用双括号括起来，不然会认为是默认值-->
+  </video>  
+    <view class="vidplay">     
+      <span bindtap="closeVid">关闭视频</span>
     </view>
   
 </view>

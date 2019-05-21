@@ -83,6 +83,9 @@
 <view class="shaizik" style="display:{{showShaizi}};">
   <view class="shaizi" style="background-image:url(http://www.twobyoung.com/ether/img/shaizi/{{numi}}.png);" ></view>
 </view>
+<view class="tishik" style="display:{{tishiShow}}">
+  <view class="tishi">恭喜您抽中{{tishiRenwu}}</view>
+</view>
 </view>
 
 <view class="musicplay" bind:touchstart="playmusic">

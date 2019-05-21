@@ -65,6 +65,8 @@ Page({
     touchjh:"",//进入按钮交互
     musicCtrl:"musicac",//音乐控制
     isMusicPlay:true,//音乐当前是否在播放
+    tishiShow:"none",//显示抽中提示框显示与否
+    tishiRenwu:"阅读任务",//要显示的任务内容
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
@@ -162,11 +164,26 @@ Page({
   },
   changeBack:function(){    
     this.data.atime-=this.data.imgt;
+    var that=this;
     if(this.data.atime<=0){
       this.data.atime=2000;
       this.data.isTou=false;
   //【【后台获取目前要做的任务，展示给客户，需要提前请求；】】
       this.setData({numi:'zs'});
+      setTimeout(()=>{
+        that.setData({
+          tishiShow:"block",
+          tishiRenwu:"shdifd"//更改显示的任务内容
+        });
+      },500);      
+      setTimeout(()=>{
+        that.setData({
+          showShaizi:"none",
+          tishiShow: "none",
+          tishiRenwu: "shdifd"//更改显示的任务内容
+        });
+        wx.navigateTo({ url: "../video/vid"})
+      },2000);      
       return;
       }
     if(this.data.numi<this.data.aimg){this.setData({numi:++this.data.numi});}
