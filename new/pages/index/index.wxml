@@ -17,7 +17,6 @@
       <span style="background-image:url(http://www.twobyoung.com/ether/img/index/title.png);">欢迎参加记忆之声XXX活动</span>
     </view>
     <image  class="listd_bot" src="http://www.twobyoung.com/ether/img/index/enter.png" mode="widthFix" bind:touchstart="touchStartf" bind:touchend="touchEndf" style="{{touchjh}}"></image>
-   
 
     <view class="listd_con">
       <view class="listd_cok">

@@ -1,0 +1,7 @@
+/* pages/mess/mess.wxss */
+@import '../wxParse/wxParse.wxss';
+div,p,h1,h2,h3,h4,h5,h6,header,footer,section,table{display:block;width:100%;}
+span,b,i,em,a{display:inline;}
+img{display:inline-block;}
+.content{width:90%;box-sizing:border-box;text-align:justify;font-size:16px;line-height:24px;color:#333;padding:15px 0%;margin:15px 5%;}
+.content img{display:block;width:100%;margin:10px 0;}

@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/video/vid"
+    "pages/video/vid",
+    "pages/mess/mess"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -10,5 +11,5 @@
     "navigationBarTextStyle": "black",
     "navigationStyle":"custom"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation":"sitemap.json"
 }

@@ -5,7 +5,7 @@
 	},
 	"setting": {
 		"urlCheck": false,
-		"es6": false,
+		"es6": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
@@ -45,12 +45,19 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 1,
 			"list": [
 				{
 					"id": -1,
 					"name": "视频",
 					"pathName": "pages/video/vid",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "wxparse",
+					"pathName": "pages/mess/mess",
 					"scene": null
 				}
 			]

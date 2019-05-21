@@ -1,6 +1,6 @@
 <!--pages/video/vid.wxml-->
 <view class="vid">
-  <video src="http://www.twobyoung.com/ether/file/fall.mp4" id="video" controls="false">
+  <video src="{{videoSrc}}" id="video" controls="false">
   </video>
   
     <view class="vidplay">
