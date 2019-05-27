@@ -119,15 +119,15 @@
       </view>
       <view class="rescon">
         <image src="http://www.twobyoung.com/ether/img/ques/right.png" mode="widthFix"></image>
-        恭喜您获得{{isLaohjJP}}{{isLaohjJPD}}<br/>
-        {{isLaohjLJ}}
+        恭喜您获得{{isLaohjJP}}<br/>
+        <p>{{isLaohjLJ}}</p>
       </view>
       <view class="resbutk">
         <view class="resbut" bindtap="backhomep">
           <image src="http://www.twobyoung.com/ether/img/ques/backhome.png" mode="widthFix"></image>
           <p>返回首页</p>
         </view>
-        <view class="resbut" bindtap="showLaohj">
+        <view class="resbut" bindtap="hideZhongj">
           <image src="http://www.twobyoung.com/ether/img/ques/goon.png" mode="widthFix"></image>
           <p>继续抽奖</p>
         </view>      
@@ -165,6 +165,7 @@
     <view class="laohj">
       <image src="http://www.twobyoung.com/ether/img/laohj/return.png" mode="widthFix" class="laohj_return" bindtap="closeLaohuj"></image>
       <image src="http://www.twobyoung.com/ether/img/laohj/back.png" class="laohj_back" mode="widthFix"></image>
+      <view class="laohj_times">剩余{{choujTimes}}次</view>
       <view class="laohj_zhez">
         <image src="http://www.twobyoung.com/ether/img/laohj/front.png"></image>
       </view>

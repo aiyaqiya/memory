@@ -1,2 +1,59 @@
 <!--pages/lingj/lingj.wxml-->
-<text>pages/lingj/lingj.wxml</text>
+<view class="listk" style="background-image:url(http://www.twobyoung.com/ether/img/index/back.jpg);{{setWidthH}}">
+  <image src="http://www.twobyoung.com/ether/img/laohj/background.png" class="backimg" mode="widthFix"></image>
+  <view class="back">
+
+    <view class="contk" style="display:{{isListShow}};">
+      <image src="http://www.twobyoung.com/ether/img/closeb.png" class="cont_close" bindtap="backHome"></image>
+      <view class="contd">
+        <block wx:for="{{allres}}" wx:for-index="i" wx:for-item="r">
+          <view class="contli">
+            <view class="contl_tit">{{r.title}}
+              <p wx:if="{{r.havePaid}}" class="contl_biaoj"></p>
+              <p wx:if="{{!r.havePaid}}" class="contl_biaojac"></p>
+            </view>
+            <view class="contl_dhm">
+              <span wx:if="{{r.isMenp}}">兑换码：{{r.duihm}}</span> 
+              <span wx:if="{{!r.isMenp  && r.havePaid}}">{{r.address}}</span>
+
+              <b class="contl_copy" wx:if="{{r.isMenp}}" bindtap="clickCopy" data-ma="{{r.duihm}}">点击复制</b>
+              <b class="contl_addr" wx:if="{{!r.isMenp && !r.havePaid}}" bindtap="showAddr" data-ind="{{i}}">添加地址</b>
+              <p class="contl_date">{{r.date}}</p>
+            </view>
+            <view class="contl_sm">
+              {{r.shuom}}
+            </view>
+          </view>
+        </block>
+
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="inpk" style="display:{{isAddrShow}};">
+       <image src="http://www.twobyoung.com/ether/img/closeb.png" class="cont_close" bindtap="backList"></image>
+      <view class="contd">
+        <view class="inpd">
+          <label class="inptit" for="name">收货人</label>
+          <input type="text" class="input" id="name" placeholder="请输入收货人姓名" bindblur="inputValue" data-name="named"></input>
+        </view>
+        <view class="inpd">
+          <label class="inptit" for="phone">手机号码</label>
+          <input type="number" class="input" id="phone" placeholder="请输入收货人手机号" bindblur="inputValue" data-name="phoned"></input>
+        </view>
+        <view class="inpd">
+          <label class="inptit" for="prov">所在省市</label>
+          <input type="text" id="prov" class="input" value="{{insteadp}}" placeholder="请输入所在省及所在市"  bindblur="inputValue" data-name="prov"></input>
+          <view class="inpbs" bindtap="findYou">
+            <image src="http://www.twobyoung.com/ether/img/index/local.png" mode="widthFix"></image>
+            定位
+          </view>
+        </view>
+        <view class="inpd">
+          <label class="inptit" for="addr">详细地址</label>
+          <input type="text" class="input" id="addr" placeholder="请详细到门牌号"  bindblur="inputValue" data-name="addr"></input>
+        </view>
+        <view class="inpbut" bindtap="updatas">提交信息</view>
+      </view>
+    </view>

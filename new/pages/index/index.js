@@ -61,7 +61,8 @@ Page({
       "http://www.twobyoung.com/ether/img/laohj/front.png",
       "http://www.twobyoung.com/ether/img/laohj/list.jpg",
       "http://www.twobyoung.com/ether/img/laohj/return.png",
-      "http://www.twobyoung.com/ether/img/index/choujbut.png"
+      "http://www.twobyoung.com/ether/img/index/choujbut.png",
+      "http://www.twobyoung.com/ether/img/laohj/background.png"
     ],
     allimgi: 0,
     allimgload:"0",
@@ -94,15 +95,15 @@ Page({
     animation2:{},
     animation3:{},
     isLaohjZhj:"none",//老虎机摇中
-    isLaohjJP:"",//老虎机中奖的奖品名
-    isLaohjJPD:"",//老虎机中奖详情
+    isLaohjJP:"",//老虎机中奖的奖品名    
     isLaohjLJ:"",//老虎机中奖的领奖方式    
     guoguan:['','','','','','','','','','','',''],
-    userInfo: {},
+    userInfo: {},    
     hasUserInfo: false,
+    laohjRuning:false,//老虎机正在转与否
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-  onLoad: function () {    
+  onLoad: function () {
     this.data.sys = wx.getSystemInfoSync();    
     function makeFit(obj){//返回宽高差的一半，
         var tx=(obj.y-obj.x)/2;
@@ -113,54 +114,29 @@ Page({
     this.setData({
       setWidthH: "width:" + this.data.sys.screenHeight + 'px;height:' + this.data.sys.screenWidth + "px;transform:rotate(90deg) translate(" + tr.y + "px," + tr.x + "px);-webkit-transform:rotate(90deg) translate(" + tr.y + "px," + tr.x +"px);"
     });
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse) {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        //全局获取信息的回调函数
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        });
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          });
-        }
-      })
-    }
     //请求通过关卡数判断是否显示老虎机
     var that=this;
     wx.request({url:"http://192.168.31.211/suport/tongg.php",
       success:function(res){
+          var guog=res.data.guog,
+              choujt=res.data.choujtime;
           var tarr=['','','','','','','','','','','',''];
-          for(var i=0;i<res.data;i++){
+        for (var i = 0; i < guog;i++){
             tarr[i]='ac';
           }
           that.setData({
             guoguan:tarr
           });
-          if(res.data>=12){
+        if (guog>=12){
             that.setData({              
               isGuoGK:"block",
               isShowEnter:"none",
               isShowChouj:"block",
-              choujTimes:5//抽奖次数
+              choujTimes: choujt//抽奖次数
             });
           };
         that.setData({
-          nowGuanKa: res.data,
+          nowGuanKa: guog,
           });
       }
     });
@@ -169,6 +145,12 @@ Page({
     this.data.music=wx.createAudioContext("music");
     this.data.music.play();
   },
+  onShareAppMessage: function (res) {//设置分享内容
+    return {
+      title: "欢迎参加记忆之声XXX活动",
+      imageUrl: "http://www.twobyoung.com/ether/img/index/back.jpg"
+    }
+  },  
   ctrlMusic:function(){
     if (this.data.isMusicPlay){
       this.data.music.pause();
@@ -177,6 +159,18 @@ Page({
       this.data.music.play();
       this.setData({ musicCtrl: "musicac", isMusicPlay:true });
     }
+  },
+  getCJTimes:function(){
+    var that=this;
+    wx.request({
+      url:"http://192.168.31.211/suport/guog.php",
+      success:function(res){
+        var chouj=res.data.choujtime;
+        that.setData({
+          choujTimes:chouj
+        });
+      }
+    })
   },
   //事件处理函数
   bindViewTap: function() {
@@ -263,12 +257,19 @@ Page({
   },
   backhomep:function(){//返回整个小程序首页的函数
     this.setData({
-      isGuoGK:"none"
+      isGuoGK:"none",
+      isLaohjZhj:"none",
+      isLaohjShow:"none"
     });
     return;
     wx.navigateTo({url:"../index/index"});
   },
-  showLaohj:function(){//初始化并显示老虎机    
+  showLaohj:function(){//初始化并显示老虎机
+    //判断有没有次数
+    if(this.data.choujTimes==0){
+      this.showNoTimes();
+      return;
+    }
     this.setData({
       isLaohjShow: "block",
       isGuoGK: "none",
@@ -298,10 +299,23 @@ Page({
     this.setData({
       laohjButAc: ""
     });
+    //如果正在抽奖，则不进行操作
+    if (this.data.laohjRuning){return;}
+    //判断有没有次数    
+    if (this.data.choujTimes == 0) {
+      this.showNoTimes();
+      this.getCJTimes();
+      return;
+    }
+    this.setData({
+      choujTimes: this.data.choujTimes - 1
+    });
+    this.data.laohjRuning=true;//劫持按钮，在执行完之前不允许再次操作
     //老虎机开始转，可以在请求之后获得中奖与否之后再执行
 
     var zhongj = Math.round(Math.random()) - Math.round(Math.random());//目前中奖是随机的
-    this.laohujRun(zhongj);    
+    this.laohujRun(zhongj);
+    this.data.zhongj=zhongj;
   },
   laohujRun:function(bo){
     var count=12;
@@ -383,10 +397,30 @@ Page({
       }
     }
     function makeStop(ti){
-      var tstr="animation"+ti,ani=getV(tops[ti-1]);      
+      var tstr="animation"+ti,ani=getV(tops[ti-1]);
      that.setData({
         [tstr]:ani.top(-tops[ti-1]*one+one/15).step().export() 
         });
+      //【【【当前抽奖结束】】】
+      if (ti >= 3) {
+        setTimeout(function(){
+          that.data.laohjRuning = false;
+          switch (that.data.zhongj) {
+            case -1: {
+              that.showZhongj("100积分", "请在【我的】->【个人信息】->【积分记录】中查看");
+              break;
+            }
+            case 0: {
+              that.showZhongj("周杰伦演唱会周边T恤衫", "请在右下角【领奖记录】中填写收货地址领取");
+              break;
+            }
+            case 1: {
+              that.showZhongj("周杰伦演唱会门票一张", "请用右下角【领奖记录】中说明的方式兑换");
+              break;
+            }
+          }
+        },1000);      
+      }
     }
     function setZhongj(bo) {//bo为number值，1返回都一样，0；两个一样，-1都不一样    
       tops = [0, 0, 0];
@@ -426,15 +460,29 @@ Page({
     wx.navigateTo({
       url:"../lingj/lingj"
     });
-  },
-  onShareAppMessage:function(){
-    
-  },
+  }, 
   showNoTimes:function(){
     this.setData({ isNotimesShow:"block"});
   },
   hideNoTimes:function(){
     this.setData({ isNotimesShow: "none" });
+  },
+  showZhongj:function(a,c){
+    this.setData({
+      isLaohjZhj:"block",
+      isLaohjJP: a,      
+      isLaohjLJ: c
+    });
+  },
+  hideZhongj:function(){
+    this.setData({
+      isLaohjZhj: "none",
+      isLaohjJP:'',      
+      isLaohjLJ: ""
+    });
   }
 });
-
+/*
+  isLaohjJP: "",//老虎机中奖的奖品名  
+  isLaohjLJ: "",//老虎机中奖的领奖方式    
+*/
