@@ -1,5 +1,69 @@
 <!--pages/mess/mess.wxml-->
 <import src="../wxParse/wxParse.wxml"/>
-<template is="wxParse" data="{{wxParseData:content.nodes}}">
+<view class="listk" style="background-image:url(http://www.twobyoung.com/ether/img/ques/back.jpg);{{setWidthH}}">
+  <view class="person">
+    <image src="{{utoux}}" mode="widthFix"></image>
+    {{uname}}
+  </view>
+  <view class="quesk">
+      <view class="ques_tit">【第{{wordNumber}}题】</view>
+      <view class="ques_name">{{nowQuest}}</view>
+      <view class="ques_ansk" bindtap="checkQues">
+        <view class="ques_ans" data-set="0">{{answer1}}</view>
+        <view class="ques_ans" data-set="1">{{answer2}}</view>
+        <view class="ques_ans" data-set="2">{{answer3}}</view>
+        <view class="ques_ans" data-set="3">{{answer4}}</view>
+      </view>
+  </view>
 
-</template>
+  <view class="resk" style="display:{{isGuoGK}}">
+    <view class="resd">
+      <view class="resd_tit">
+        <image src="http://www.twobyoung.com/ether/img/ques/titleback.png" mode="widthFix"></image>
+        <p>答题结果</p>
+      </view>
+      <view class="rescon">
+        <image src="http://www.twobyoung.com/ether/img/ques/right.png" mode="widthFix"></image>
+        恭喜您，过关啦！
+      </view>
+      <view class="resbutk">
+        <view class="resbut" bindtap="backhomep">
+          <image src="http://www.twobyoung.com/ether/img/ques/backhome.png" mode="widthFix"></image>
+          <p>返回首页</p>
+        </view>
+        <view class="resbut" bindtap="backhomep">
+          <image src="http://www.twobyoung.com/ether/img/ques/goon.png" mode="widthFix"></image>
+          <p>继续挑战</p>
+        </view>      
+    </view>
+    </view>
+  </view>
+
+  <view class="resk" style="display:{{isWGuoGK}}">
+    <view class="resd">
+      <view class="resd_tit">
+        <image src="http://www.twobyoung.com/ether/img/ques/titleback.png" mode="widthFix"></image>
+        <p>答题结果</p>
+      </view>
+      <view class="rescon">
+        <image src="http://www.twobyoung.com/ether/img/ques/fault.png" mode="widthFix"></image>
+        很遗憾，答错了！
+      </view>
+      <view class="resbutk">
+        <view class="resbut" bindtap="backhomep">
+          <image src="http://www.twobyoung.com/ether/img/ques/backhome.png" mode="widthFix"></image>
+          <p>返回首页</p>
+        </view>
+        <view class="resbut" bindtap="reChanlege">
+          <image src="http://www.twobyoung.com/ether/img/ques/goon.png" mode="widthFix"></image>
+          <p>重新挑战</p>
+        </view>      
+    </view>
+    </view>
+  </view>
+
+  <template is="wxParse" data="{{wxParseData:content.nodes}}">
+
+  </template>
+</view>
+

@@ -16,55 +16,56 @@
     <view class="listd_tit">
       <span style="background-image:url(http://www.twobyoung.com/ether/img/index/title.png);">欢迎参加记忆之声XXX活动</span>
     </view>
-    <image  class="listd_bot" src="http://www.twobyoung.com/ether/img/index/enter.png" mode="widthFix" bind:touchstart="touchStartf" bind:touchend="touchEndf" style="{{touchjh}}"></image>
-
+    <image  class="listd_bot" src="http://www.twobyoung.com/ether/img/index/enter.png" mode="widthFix" bind:touchstart="touchStartf" bind:touchend="touchEndf" style="{{touchjh}};display:{{isShowEnter}}"></image>
+     <image  class="listd_bot" src="http://www.twobyoung.com/ether/img/index/choujbut.png" mode="widthFix" bindtap="showLaohj" style="{{touchjh}};display:{{isShowChouj}};"></image>
     <view class="listd_con">
       <view class="listd_cok">
         <view style="background-image:url(http://www.twobyoung.com/ether/img/logo/1.jpg);" class="icok">
-          <image src="http://www.twobyoung.com/ether/img/index/logokac.png"></image>
+          <image src="http://www.twobyoung.com/ether/img/index/logok{{guoguan[0]}}.png"></image>
         </view>
         <view style="background-image:url(http://www.twobyoung.com/ether/img/logo/2.jpg);" class="icok">
-          <image src="http://www.twobyoung.com/ether/img/index/logok.png"></image>
+          <image src="http://www.twobyoung.com/ether/img/index/logok{{guoguan[1]}}.png"></image>
         </view>
         <view style="background-image:url(http://www.twobyoung.com/ether/img/logo/3.jpg);" class="icok">
-          <image src="http://www.twobyoung.com/ether/img/index/logok.png"></image>
+          <image src="http://www.twobyoung.com/ether/img/index/logok{{guoguan[2]}}.png"></image>
         </view>
         <view style="background-image:url(http://www.twobyoung.com/ether/img/logo/4.jpg);" class="icok">
-          <image src="http://www.twobyoung.com/ether/img/index/logok.png"></image>
+          <image src="http://www.twobyoung.com/ether/img/index/logok{{guoguan[3]}}.png"></image>
         </view>
         <view style="background-image:url(http://www.twobyoung.com/ether/img/logo/5.jpg);" class="icok">
-          <image src="http://www.twobyoung.com/ether/img/index/logok.png"></image>
+          <image src="http://www.twobyoung.com/ether/img/index/logok{{guoguan[4]}}.png"></image>
         </view>
         <view style="background-image:url(http://www.twobyoung.com/ether/img/logo/6.jpg);" class="icok">
-          <image src="http://www.twobyoung.com/ether/img/index/logok.png"></image>
+          <image src="http://www.twobyoung.com/ether/img/index/logok{{guoguan[5]}}.png"></image>
         </view>
       </view>
       <view class="listd_cok">
         <view style="background-image:url(http://www.twobyoung.com/ether/img/logo/7.jpg);" class="icok">
-          <image src="http://www.twobyoung.com/ether/img/index/logok.png"></image>
+          <image src="http://www.twobyoung.com/ether/img/index/logok{{guoguan[6]}}.png"></image>
         </view>
         <view style="background-image:url(http://www.twobyoung.com/ether/img/logo/8.jpg);" class="icok">
-          <image src="http://www.twobyoung.com/ether/img/index/logok.png"></image>
+          <image src="http://www.twobyoung.com/ether/img/index/logok{{guoguan[7]}}.png"></image>
         </view>
         <view style="background-image:url(http://www.twobyoung.com/ether/img/logo/9.jpg);" class="icok">
-          <image src="http://www.twobyoung.com/ether/img/index/logok.png"></image>
+          <image src="http://www.twobyoung.com/ether/img/index/logok{{guoguan[8]}}.png"></image>
         </view>
         <view style="background-image:url(http://www.twobyoung.com/ether/img/logo/10.jpg);" class="icok">
-          <image src="http://www.twobyoung.com/ether/img/index/logok.png"></image>
+          <image src="http://www.twobyoung.com/ether/img/index/logok{{guoguan[9]}}.png"></image>
         </view>
         <view style="background-image:url(http://www.twobyoung.com/ether/img/logo/11.jpg);" class="icok">
-          <image src="http://www.twobyoung.com/ether/img/index/logok.png"></image>
+          <image src="http://www.twobyoung.com/ether/img/index/logok{{guoguan[10]}}.png"></image>
         </view>
         <view style="background-image:url(http://www.twobyoung.com/ether/img/logo/12.jpg);" class="icok">
-          <image src="http://www.twobyoung.com/ether/img/index/logok.png"></image>
+          <image src="http://www.twobyoung.com/ether/img/index/logok{{guoguan[11]}}.png"></image>
         </view>
       </view>
     </view>
-  </view>
-  <view class="listd_mes">
-    <view class="listd_mesp" style="background-image:url(http://www.twobyoung.com/ether/img/index/but.png">活动进度：3/12</view>
-    <view class="listd_mesp" style="background-image:url(http://www.twobyoung.com/ether/img/index/but.png">活动规则</view>
-  </view>
+    <view class="listd_mes">
+      <view class="listd_mesp" style="background-image:url(http://www.twobyoung.com/ether/img/index/but.png);">活动进度：{{nowGuanKa}}/12</view>
+      <view class="listd_mesp" style="background-image:url(http://www.twobyoung.com/ether/img/index/but.png);" bindtap="showHuodgz">活动规则</view>
+      <view class="listd_mesp" style="background-image:url(http://www.twobyoung.com/ether/img/index/but.png);display:{{nowGuanKa>=12 ? 'block':'none'}};" bindtap="showLingj">领奖记录</view>
+    </view>
+  </view>  
   
   <!--背景点缀-->
   <view class="listz">
@@ -79,15 +80,138 @@
     <image src="http://www.twobyoung.com/ether/img/index/dz8.png" mode="widthFix" class="listz_dz10"></image>
 
   </view>
-<!--色子-->
-<view class="shaizik" style="display:{{showShaizi}};">
-  <view class="shaizi" style="background-image:url(http://www.twobyoung.com/ether/img/shaizi/{{numi}}.png);" ></view>
+  <!--色子-->
+  <view class="shaizik" style="display:{{showShaizi}};">
+    <view class="shaizi" style="background-image:url(http://www.twobyoung.com/ether/img/shaizi/{{numi}}.png);" ></view>
+  </view>
+  <view class="tishik" style="display:{{tishiShow}}">
+    <view class="tishi">恭喜您抽中{{tishiRenwu}}</view>
+  </view>
+  <!--通关任务-->
+  <view class="resk" style="display:{{isGuoGK}}">
+    <view class="resd">
+      <view class="resd_tit">
+        <image src="http://www.twobyoung.com/ether/img/ques/titleback.png" mode="widthFix"></image>
+        <p>通关奖励</p>
+      </view>
+      <view class="rescon">
+        <image src="http://www.twobyoung.com/ether/img/ques/right.png" mode="widthFix"></image>
+        恭喜通关！您有{{choujTimes}}次抽奖机会！
+      </view>
+      <view class="resbutk">
+        <view class="resbut" bindtap="backhomep">
+          <image src="http://www.twobyoung.com/ether/img/ques/backhome.png" mode="widthFix"></image>
+          <p>返回首页</p>
+        </view>
+        <view class="resbut" bindtap="showLaohj">
+          <image src="http://www.twobyoung.com/ether/img/ques/goon.png" mode="widthFix"></image>
+          <p>开始抽奖</p>
+        </view>      
+      </view>
+    </view>
+  </view>
+  <!--老虎机抽中-->
+  <view class="resk" style="display:{{isLaohjZhj}}">
+    <view class="resd">
+      <view class="resd_tit">
+        <image src="http://www.twobyoung.com/ether/img/ques/titleback.png" mode="widthFix"></image>
+        <p>恭喜中奖</p>
+      </view>
+      <view class="rescon">
+        <image src="http://www.twobyoung.com/ether/img/ques/right.png" mode="widthFix"></image>
+        恭喜您获得{{isLaohjJP}}{{isLaohjJPD}}<br/>
+        {{isLaohjLJ}}
+      </view>
+      <view class="resbutk">
+        <view class="resbut" bindtap="backhomep">
+          <image src="http://www.twobyoung.com/ether/img/ques/backhome.png" mode="widthFix"></image>
+          <p>返回首页</p>
+        </view>
+        <view class="resbut" bindtap="showLaohj">
+          <image src="http://www.twobyoung.com/ether/img/ques/goon.png" mode="widthFix"></image>
+          <p>继续抽奖</p>
+        </view>      
+      </view>
+    </view>
+  </view>  
+  <!--没有次数-->
+  <view class="resk" style="display:{{isNotimesShow}}">
+    <view class="resd">
+      <view class="resd_tit">
+        <image src="http://www.twobyoung.com/ether/img/ques/titleback.png" mode="widthFix"></image>
+        <p>很遗憾</p>
+      </view>
+      <view class="rescon">
+        <image src="http://www.twobyoung.com/ether/img/ques/right.png" mode="widthFix"></image>
+       您的抽奖次数已用完
+       <p>每日第一次分享，或分享得页面有新人点击加入，即可再次获得抽奖机会哦~</p>
+      </view>
+      <view class="resbutk">
+        <view class="resbut" bindtap="hideNoTimes">
+          <image src="http://www.twobyoung.com/ether/img/ques/backhome.png" mode="widthFix"></image>
+          <p>返回首页</p>
+        </view>
+        <view class="resbut">
+          <image src="http://www.twobyoung.com/ether/img/ques/goon.png" mode="widthFix"></image>
+          <p>点击分享</p>
+        <button open-type="share" class="button">          
+        </button>
+        </view>
+      </view>
+    </view>
+  </view>     
+  <!--老虎机新加-->
+  <view class="laohjk" style="display:{{isLaohjShow}}">
+    <view class="laohj">
+      <image src="http://www.twobyoung.com/ether/img/laohj/return.png" mode="widthFix" class="laohj_return" bindtap="closeLaohuj"></image>
+      <image src="http://www.twobyoung.com/ether/img/laohj/back.png" class="laohj_back" mode="widthFix"></image>
+      <view class="laohj_zhez">
+        <image src="http://www.twobyoung.com/ether/img/laohj/front.png"></image>
+      </view>
+      <view class="laohj_cont">
+        <image src="http://www.twobyoung.com/ether/img/laohj/list.jpg" class="laohj_cimg1" mode="widthFix" animation="{{animation1}}"></image>
+        <image src="http://www.twobyoung.com/ether/img/laohj/list.jpg" class="laohj_cimg2" mode="widthFix" animation="{{animation2}}"></image>
+        <image src="http://www.twobyoung.com/ether/img/laohj/list.jpg" class="laohj_cimg3" mode="widthFix" animation="{{animation3}}"></image>
+      </view>
+      <image src="http://www.twobyoung.com/ether/img/laohj/but{{laohjButAc}}.png" class="laohj_but" mode="widthFix" bind:touchstart="laohujGo" bind:touchend="laohujGot"></image>
+    </view>
+  </view>
+  <!--活动规则-->
+  <view class="resk" style="display:{{isHuodShow}}">
+    <view class="resd">
+      <view class="resd_tit">
+        <image src="http://www.twobyoung.com/ether/img/ques/titleback.png" mode="widthFix"></image>
+        <p>活动规则</p>
+      </view>
+      <view class="gzcont">
+        1.参与方式：所有在记忆之声平台上已注册登录的用户。<br/>
+        2.活动规则：<br/>
+        1）参与此活动的用户，完成全部任务后，可参与每日摇奖，获得赢取门票的机会。<br/>
+        2）活动分为2部分：<br/>
+        第1部分，通过做任务获得通关资格<br/>
+        第2部分，通关用户在活动时间内，每天有5次摇奖机会<br/>
+        3）获得门票的用户，需要根据具体提示来换取门票<br/>
+        3.活动奖品<br/>
+        1）演唱会门票<br/>
+        2）演唱会周边<br/>
+        3）平台积分<br/>
+        4.增加摇奖次数<br/>
+        1)成功分享到微信群，每天可增加1次摇奖机会<br/>
+        2)成功邀请到新用户参与活动时，您可增加1次摇奖机会，每天最多20次<br/>
+        新用户解释：<br/>
+        首次通过活动分享的小程序进入后，参与到活动中（点击活动"开始任务"按钮）即视为新用户。<br/>
+        5.活动时间：以活动列表中显示为准。<br/>
+        6.通过本活动获得的演唱会门票及相关奖励，仅限正常用户正常途径参与活动。记忆之声有权对任何参加本活动的有可能违反本活动规则的用户采取拒绝发奖、取消订单、冻结账户等措施。<br/>
+        【本活动最终解释权归北京壹漾文化传播有限公司所有】
+      </view>
+      <view class="resbut" bindtap="closeHuodgz" style="position:absolute;left:0;right:0;bottom:-30rpx;margin:auto;">
+          <image src="http://www.twobyoung.com/ether/img/ques/goon.png" mode="widthFix"></image>
+          <p>返回</p>
+      </view>
+    </view>
+  </view>
 </view>
-<view class="tishik" style="display:{{tishiShow}}">
-  <view class="tishi">恭喜您抽中{{tishiRenwu}}</view>
-</view>
-</view>
-
+<!--音乐-->
 <view class="musicplay" bind:touchstart="playmusic">
-  <audio src="http://www.twobyoung.com/ether/file/mus.mp3" autoplay loop id="music"></audio>
+  <audio src="http://192.168.31.211/ether/file/mus.mp3" autoplay loop id="music"></audio>
 </view>

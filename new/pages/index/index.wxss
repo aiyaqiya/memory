@@ -1,5 +1,7 @@
 /**index.wxss**/
+.button{appearance:none;-webkit-appearance:none;background-color:None;padding:none;opacity:0;position:absolute;left:0;top:0;width:100%;height:100%;border:none;}
 div,p,h1,h2,h3,h4,h5,h6{display:block;}
+br{display:block;width:100%;height:0;}
 /*加载框*/
 .load{width:100%;height:100%;position:fixed;left:0;top:0;z-index:9999999;transform:rotate(90deg);-webkit-transform:rotate(90deg);}
 .loadz{width:100%;height:100%;position:absolute;left:0;top:0;z-index:999;background:#fff;}
@@ -12,8 +14,7 @@ div,p,h1,h2,h3,h4,h5,h6{display:block;}
   -webkit-transition:all 0.2s ease;
 }
 /*首页样式*/
-.listk{width:100%;height:100%;position:fixed;left:0;top:0;z-index:10;transform-origin:center center;-webkit-transform-origin:center center;background-size:auto 100%;background-repeat:no-repeat;}
-
+.rescon p{font-size:20rpx;line-height:24rpx;margin:8rpx 0;white-space:normal;color:#888;}
 .listd{width:100%;height:100%;padding:70rpx 5% 120rpx;box-sizing:border-box;text-align:center;position:fixed;left:0;top:0;z-index:99;}
 .listd_tit{width:100%;position:absolute;height:160rpx;top:30rpx;left:0;}
 .listd_tit span{display:inline-block;padding:0 90rpx;height:160rpx;line-height:100rpx;color:#fff;font-size:40rpx;background-size:100% 100%;background-repeat:no-repeat;}
@@ -38,7 +39,7 @@ div,p,h1,h2,h3,h4,h5,h6{display:block;}
 .listz_dz6{left:38%;bottom:25%;width:40rpx;}
 .listz_dz7{left:65%;bottom:10%;width:40rpx;}
 .listz_dz8{left:75%;bottom:-8%;width:110rpx;animation:floorUp 20s linear infinite;-webkit-animation:floorUp 20s linear infinite;}
-.listz_dz9{right:6%;bottom:25%;width:100rpx;}
+.listz_dz9{right:8%;bottom:15%;width:100rpx;}
 .listz_dz10{left:35%;bottom:-18%;width:50rpx;animation:floorUp 25s linear infinite 4s;-webkit-animation:floorUp 25s linear infinite 4s;}
 .musicac{animation:tiaod 2s ease infinite 0.5s;-webkit-animation:tiaod 2s ease infinite 0.5s;}
 /*音乐播放层*/
@@ -105,3 +106,22 @@ div,p,h1,h2,h3,h4,h5,h6{display:block;}
 .tishik{height:100rpx;line-height:50px;width:100%;position:absolute;left:0;right:0;top:0;bottom:0;margin:auto;z-index:99999999;text-align:center;color:#fff;}
 .tishi{display:inline-block;background:rgba(0,0,0,0.6);padding:20rpx 10rpx;line-height:24rpx;margin:0 auto;width:70%;border-radius:15px;font-size:32rpx;}
 
+/*老虎机*/
+.laohjk{position:fixed;width:100%;height:100%;background:rgba(0,0,0,0.7);left:0;top:0;z-index:999;}
+.laohj{position:absolute;left:0;top:0;right:0;bottom:0;margin:auto;width:480rpx;height:700rpx;}
+.laohj_return{position:absolute;left:0;top:20rpx;z-index:50;width:55rpx;}
+.laohj_back{display:block;width:100%;margin-top:-70rpx;}
+.laohj_zhez{position:absolute;width:86%;height:280rpx;left:5%;top:155rpx;z-index:20;}
+.laohj_cont{position:absolute;width:82%;height:270rpx;left:7%;top:160rpx;z-index:10;overflow:hidden;background:#fff;border-radius:20rpx;}
+.laohj_zhez image{display:block;width:100%;height:100%;}
+.laohj_cimg1{position:absolute;left:0%;top:0%;width:33.3333%;}
+.laohj_cimg2{position:absolute;left:33.3333%;top:0%;width:33.3333%;}
+.laohj_cimg3{position:absolute;left:66.6666%;top:0%;width:33.3333%;}
+.laohj_but{position:absolute;width:150rpx;left:150rpx;bottom:125rpx;z-index:40;}
+/*活动规则样式*/
+.gzcont{width:80%;height:80%;margin:10% 10%;overflow-y:auto;text-align:justify;font-size:26rpx;line-height:30rpx;color:#666;}
+.closegz{position:absolute;bottom:-30rpx;left:50%;margin-left:-30rpx;width:60rpx;height:60rpx;}
+::-webkit-scrollbar{width:3px;background:rgba(0,0,0,0.1);}
+::-webkit-scrollbar-thumb{width:3px;background:rgba(0,0,0,0.4);}
+
+.button-hover{color:#666 !important;background:none !important;border:none !important;outline:none !important;}

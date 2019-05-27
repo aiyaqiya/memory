@@ -1,9 +1,9 @@
 <!--pages/video/vid.wxml-->
-<view class="vid">
-  <video src="{{videoSrc}}" id="video" controls="{{false}}" bindended="playend"><!--controls一定要用双括号括起来，不然会认为是默认值-->
-  </video>  
-    <view class="vidplay">     
-      <span bindtap="closeVid">关闭视频</span>
-    </view>
-  
+<view class="listk" style="{{setWidthH}}">
+  <video src="{{videoSrc}}"id="video" controls="{{false}}" bindended="playend" binderror="showError" bindprogress="loadNow"><!--controls一定要用双括号括起来，不然会认为是默认值-->
+  </video>
 </view>
+<view class="vidplay" bindtap="closeVid">
+      关闭视频
+</view>
+ 

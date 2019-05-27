@@ -2,7 +2,9 @@
   "pages": [
     "pages/index/index",
     "pages/video/vid",
-    "pages/mess/mess"
+    "pages/mess/mess",
+    "pages/test/test",
+    "pages/lingj/lingj"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -5,3 +5,22 @@ span,b,i,em,a{display:inline;}
 img{display:inline-block;}
 .content{width:90%;box-sizing:border-box;text-align:justify;font-size:16px;line-height:24px;color:#333;padding:15px 0%;margin:15px 5%;}
 .content img{display:block;width:100%;margin:10px 0;}
+.listk{background-size:auto 100%;background-position:center center;}
+.person{width:210rpx;height:120rpx;line-height:120rpx;white-space: nowrap;overflow:hidden;text-overflow:ellipsis;color:#fff;background:#ba365e;border-top-left-radius:60rpx;border-bottom-left-radius:60rpx;position:absolute;right:0;top:100rpx;font-size:18rpx;}
+.person image{display:block;width:100rpx;margin:12rpx 10rpx ;border-radius:50%;float:left;background:#fff;}
+.quesk{width:80%;height:90%;margin:3.5% 10%;text-align:center;overflow-y:auto;}
+.ques_tit{width:100%;height:50rpx;line-height:50rpx;text-align:Center;color:#fecb00;font-weight:bold;font-size:30px;}
+.ques_name{width:100%;text-align:center;color:#fff;margin:10rpx 0;font-size:34rpx;line-height:34px;}
+.ques_ansk{width:400rpx;text-align:left;color:#320198;margin:0 auto;overflow:hidden;}
+.ques_ans{width:100%;box-sizing:border-box;padding:30rpx 7% 30rpx 80rpx;position:relative;line-height:30rpx;font-size:30rpx;margin:20rpx 0;border-radius:50rpx;overflow:visible;text-align:Center;word-break:break-all;
+background:linear-gradient(90deg,#aefefb 0%,#92d0ff 100%);
+background:-webkit-linear-gradient(90deg,#aefefb 0%,#92d0ff 100%);
+background:-moz-linear-gradient(90deg,#aefefb 0%,#92d0ff 100%);}
+.ques_ans:after{content:"";display:block;position:absolute;width:100%;height:100%;left:0;bottom:-10rpx;background:#5391f6;z-index:-1;border-radius:50rpx;}
+.ques_ans:nth-of-type(1):before{content:"A: ";display:block;position:absolute;width:80rpx;height:100%;text-align:Center;left:0;top:30rpx;}
+.ques_ans:nth-of-type(2):before{content:"B: ";display:block;position:absolute;width:80rpx;height:100%;text-align:Center;left:0;top:30rpx;}
+.ques_ans:nth-of-type(3):before{content:"C: ";display:block;position:absolute;width:80rpx;height:100%;text-align:Center;left:0;top:30rpx;}
+.ques_ans:nth-of-type(4):before{content:"D: ";display:block;position:absolute;width:80rpx;height:100%;text-align:Center;left:0;top:30rpx;}
+
+
+

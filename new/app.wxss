@@ -8,3 +8,16 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+.listk{width:100%;height:100%;position:fixed;left:0;top:0;z-index:10;transform-origin:center center;-webkit-transform-origin:center center;background-size:auto 100%;background-repeat:no-repeat;}
+
+/*结果框*/
+.resk{position:fixed;width:100%;height:100%;background:rgba(0,0,0,0.6);left:0;top:0;z-index:9999;}
+.resd{position:absolute;width:500rpx;height:400rpx;left:0;top:0;right:0;bottom:0;margin:auto;background:#fff;border-radius:15rpx;padding:20rpx 30rpx;overflow:visible;}
+.resd_tit{width:100%;top:-25rpx;left:0;text-align:Center;position:absolute;min-height:50rpx;}
+.resd_tit image{width:55%;margin:0 auto;display:block;}
+.resbutk{display:flex;justify-content:space-between;align-items:center;}
+.resbut{width:50%;flex:0 0 50%;position:relative;text-align:center;overflow:Hidden;}
+.resbut image{display:block;width:70%;margin:0 auto;}
+.resd_tit p,.resbut p{display:block;width:120rpx;height:30rpx;white-space:Nowrap;position:absolute;left:0;top:0;right:0;bottom:0;margin:auto;font-size:30rpx;line-height:30rpx;color:#fff;}
+.rescon{width:80%;margin:40rpx auto;text-align:Center;color:#333;font-size:34rpx;line-height:40rpx;min-height:250rpx;white-space:Nowrap;}
+.rescon image{display:block;max-width:25%;margin:10rpx auto;}

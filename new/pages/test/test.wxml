@@ -1,0 +1,31 @@
+<!--pages/test/test.wxml
+<view class="title">  
+  雨花石
+</view>
+<view class="content"  bindtap="shitme">
+    我是一颗，小小的石头，<br/>
+    深深地埋在，泥土之中，<br/>
+    我愿铺起，一条五彩的路，<br/>
+    让人们去迎接黎明<br/>
+    迎接欢乐<br/>
+    <image src="../img/upimg.png" mode="widthFix"></image>
+  
+  </view>
+  <view class="content"  bindtap="shitme">
+   猪，你的鼻子有两个孔<br/>
+   感冒时的你还挂着鼻涕牛牛<br/>
+   猪<br/>
+   你有这黑漆漆的眼<br/>
+   望呀望呀望也看不到边<br/>
+   猪<br/>
+   你的耳朵是那么大，<br/>
+   忽闪忽闪也听不到我在骂你傻<br/>
+   猪<br/>
+   你的尾巴是卷又卷<br/>
+   原来跑跑跳跳<br/>
+   也离不开它<br/>
+    <image src="../img/erwm.png" mode="widthFix"></image>
+  
+  </view>
+-->
+<canvas class="canvas" id="can"></canvas>
