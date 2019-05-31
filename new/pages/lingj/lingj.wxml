@@ -10,14 +10,14 @@
           <view class="contli">
             <view class="contl_tit">{{r.title}}
               <p wx:if="{{r.havePaid}}" class="contl_biaoj"></p>
-              <p wx:if="{{!r.havePaid}}" class="contl_biaojac"></p>
+              <p wx:else class="contl_biaojac"></p>
             </view>
             <view class="contl_dhm">
               <span wx:if="{{r.isMenp}}">兑换码：{{r.duihm}}</span> 
               <span wx:if="{{!r.isMenp  && r.havePaid}}">{{r.address}}</span>
 
               <b class="contl_copy" wx:if="{{r.isMenp}}" bindtap="clickCopy" data-ma="{{r.duihm}}">点击复制</b>
-              <b class="contl_addr" wx:if="{{!r.isMenp && !r.havePaid}}" bindtap="showAddr" data-ind="{{i}}">添加地址</b>
+              <b class="contl_addr" wx:elif="{{!r.havePaid}}" bindtap="showAddr" data-ind="{{i}}">添加地址</b>
               <p class="contl_date">{{r.date}}</p>
             </view>
             <view class="contl_sm">

@@ -1,5 +1,4 @@
 //index.js
-//获取应用实例
 const app = getApp()
 
 Page({
@@ -62,7 +61,9 @@ Page({
       "http://www.twobyoung.com/ether/img/laohj/list.jpg",
       "http://www.twobyoung.com/ether/img/laohj/return.png",
       "http://www.twobyoung.com/ether/img/index/choujbut.png",
-      "http://www.twobyoung.com/ether/img/laohj/background.png"
+      "http://www.twobyoung.com/ether/img/laohj/background.png",
+      "http://www.twobyoung.com/ether/img/index/share.jpg",
+      "http://www.twobyoung.com/ether/img/index/sharehd.jpg",
     ],
     allimgi: 0,
     allimgload:"0",
@@ -114,11 +115,28 @@ Page({
     this.setData({
       setWidthH: "width:" + this.data.sys.screenHeight + 'px;height:' + this.data.sys.screenWidth + "px;transform:rotate(90deg) translate(" + tr.y + "px," + tr.x + "px);-webkit-transform:rotate(90deg) translate(" + tr.y + "px," + tr.x +"px);"
     });
+    //检测是否带参数，判断来源
+    var canshu = this.getAllUrl(),tjia=0;
+    if (JSON.stringify(canshu) !== "{}") {
+      //临时逻辑，完成一关关卡+1
+      console.log(canshu.gg)
+      if (canshu.gg) {
+        tjia=1;
+      }
+      //正式逻辑，传值给后台
+      wx.request({
+        url: "http://123.56.69.131/suport/save.php",
+        data: { id: canshu.id },
+        success: function (res) {
+         // console.log(res)
+        }
+      })
+    }
     //请求通过关卡数判断是否显示老虎机
     var that=this;
-    wx.request({url:"http://192.168.31.211/suport/tongg.php",
+    wx.request({url:"http://123.56.69.131/suport/tongg.php",
       success:function(res){
-          var guog=res.data.guog,
+        var guog = parseInt(res.data.guog) + tjia,
               choujt=res.data.choujtime;
           var tarr=['','','','','','','','','','','',''];
         for (var i = 0; i < guog;i++){
@@ -140,21 +158,45 @@ Page({
           });
       }
     });
+    
   },
   onReady:function(){
     this.data.music=wx.createAudioContext("music");
     this.data.music.play();
-  },
+    //设置分享带转发详情信息
+    wx.updateShareMenu({
+      withShareTicket: true      
+    });   
+  }, 
   onShareAppMessage: function (res) {//设置分享内容
     return {
-      title: "欢迎参加记忆之声XXX活动",
-      imageUrl: "http://www.twobyoung.com/ether/img/index/back.jpg"
+      title: "开心！我要去现场看爱豆了，你要一起嘛？",
+      imageUrl: "http://www.twobyoung.com/ether/img/index/sharehd.jpg",
+      path: "/pages/index/index?id=123456",
+      success: function (res) {//回调函数有已被官方【【【【关闭】】】】
+        var shareTicket = res.shareTickets[0] || '';        
+        wx.getShareInfo({//这里边是获取分享完后被分享去处的信息          
+          shareTicket:shareTicket,
+          success:function(res){
+             console.log(res);
+             wx.showModel({
+               title:"text",
+               text:JSON.stringify(res)
+             });
+          }
+        });
+      }
     }
-  },  
+  },
+  getAllUrl: function (){//获取当前路径所带参数
+    const pages = getCurrentPages();
+    const currentPage = pages[pages.length - 1];
+    return currentPage.options;
+  },
   ctrlMusic:function(){
     if (this.data.isMusicPlay){
       this.data.music.pause();
-      this.setData({ musicCtrl: "", isMusicPlay:false });
+      this.setData({ musicCtrl: "", isMusicPlay:false});
     }else{
       this.data.music.play();
       this.setData({ musicCtrl: "musicac", isMusicPlay:true });
@@ -163,14 +205,15 @@ Page({
   getCJTimes:function(){
     var that=this;
     wx.request({
-      url:"http://192.168.31.211/suport/guog.php",
+      url:"http://123.56.69.131/suport/tongg.php",
       success:function(res){
-        var chouj=res.data.choujtime;
+        var chouj = res.data.choujtime;
+        console.log(res);
         that.setData({
           choujTimes:chouj
         });
       }
-    })
+    });
   },
   //事件处理函数
   bindViewTap: function() {
@@ -274,11 +317,11 @@ Page({
       isLaohjShow: "block",
       isGuoGK: "none",
     });
-    var that=this;
-    const imageQuery = wx.createSelectorQuery();
-    imageQuery.select(".laohj_cimg1").boundingClientRect();
-    imageQuery.selectViewport().scrollOffset();
-    imageQuery.exec(function (res) {    
+    var that=this;    
+    const query = wx.createSelectorQuery();   
+    query.select(".laohj_cimg1").boundingClientRect();
+    //imageQuery.selectViewport().scrollOffset();    
+    query.exec(function (res) {    
       var imgInfo = { h: res[0].width, w: res[0].height }
       that.setData({
         laohjImage: imgInfo,

@@ -37,22 +37,24 @@ Page({
     });
     //引入wxParse
     var WxParse = require('../wxParse/wxParse.js');
-    //模拟数据    
-    var moniData=[
-      { title:"请问李宁几岁了？请问李宁几岁了？",answers:["阿斯蒂芬阿萨",18,20,22],answer:0},
-      { title: "请问杰克琼斯几岁了？请问杰克琼斯几岁了？请问杰克琼斯几岁了？", answers: [15, 18, 20, 22], answer:2 },
-      { title: "请问张白芷几岁了？", answers: [24, 28, 30, 42], answer: 3 },
-    ];
-    this.data.questions=moniData;
-    this.makeQues();
+    var _this=this;
+    //模拟数据 
+    wx.request({
+      url:"http://123.56.69.131/suport/getQues.php",
+      success:function(res){        
+        _this.setData({
+          questions:res.data
+        });
+        _this.makeQues();
+      }
+    });
   //设置头像   
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {    
-    //WxParse.wxParse('content', 'html', content, that, 0)
-    //wx.startPullDownRefresh();//直接执行下拉刷新
+   
   },
   makeQues:function(obj){
     if(this.data.nowQuesi>=this.data.questions.length){
@@ -95,7 +97,7 @@ Page({
   },
   backhomep:function(){
     //this.reChanlege();
-    wx.redirectTo({url:"../index/index"});
+    wx.redirectTo({ url:"../index/index?gg=1"});
   },
   /**
    * 生命周期函数--监听页面显示

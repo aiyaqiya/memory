@@ -34,12 +34,12 @@ Page({
     //请求中奖纪录数据
     var that=this;
     wx.request({
-      url:"http://192.168.31.211/suport/getMess.php",
+      url:"http://123.56.69.131/suport/getMess.php",
       success:function(res){
           that.setData({
             allres:res.data
           });
-         // console.log(res);
+         console.log(res);
       }
     });
   },
@@ -84,7 +84,7 @@ Page({
     if (this.data.addr == '') { wx.showToast({ title: "请您输入地址", icon: "none" }); return;}
     var that=this;
     wx.request({
-      url:"http://192.168.31.211/suport/save.php",
+      url:"http://123.56.69.131/suport/save.php",
       data:{
         jiangpId: that.data.jiangpId,
         name:that.data.named,
@@ -108,7 +108,8 @@ Page({
       success:function(res){
           //console.log(res);
           that.setData({
-            insteadp:res.address
+            insteadp:res.address,
+            prov:res.address
           })
       }
     });

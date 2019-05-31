@@ -4,7 +4,7 @@
     "pages/video/vid",
     "pages/mess/mess",
     "pages/test/test",
-    "pages/lingj/lingj"
+    "pages/lingj/lingj"    
   ],  
   "window": {
     "backgroundTextStyle": "light",

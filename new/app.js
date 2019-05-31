@@ -35,6 +35,14 @@ App({
       }
       })
   },
+  onLoad:function(){
+    console.log("loding")
+  },
+  onShow:function(){
+    
+    //访问转发信息
+  
+  },  
   globalData: {
     userInfo: null
   }

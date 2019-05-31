@@ -45,7 +45,7 @@ Page({
     
     var that = this;
     wx.request({
-      url: "http://192.168.31.211/suport/index.php",
+      url: "http://123.56.69.131/suport/index.php",
       success: function (res) {
         that.setData({
           videoSrc: res.data,          
@@ -56,12 +56,12 @@ Page({
       fail:function(res){
         
       }    
-    });    
+    });
   },
   checkNetWork:function(){
     var that = this;
     wx.getNetworkType({
-      success: function (res) {        
+      success: function(res){
         var ty = res.networkType.toLowerCase();
         if (ty != "wifi") {//非wifi
           wx.showModal({//confirm消息点击框
@@ -73,26 +73,26 @@ Page({
               if (res.confirm) {
                 that.playVid();
               } else {//返回首页
-                wx.redirectTo({ url: "../index/index" });
+                wx.redirectTo({url: "../index/index"});
               }
             },
-            fail: function () {//调用失败              
+            fail: function(){//调用失败
             }
           });
         } else {
           that.playVid();
         }
-      },fail:function(res){        
+      },fail:function(res){
       }
     });
-  }, 
-  loadNow:function(){    
+  },
+  loadNow:function(){
     //wx.showLoading({title:"loading"});
   },
   showError:function(){    
       wx.showToast({"title":"视频出错了,请关闭页面重试~",mask:true});
   },
-  playVid:function(){    
+  playVid:function(){
     this.data.vid1.play();    
    // this.data.vid1.requestFullScreen();
   },
@@ -124,7 +124,7 @@ Page({
       icon: "success",
       duration: 1500,
       success: function () {
-        setTimeout(() => { wx.redirectTo({url:'../index/index'}); }, 1500);
+        setTimeout(() => { wx.redirectTo({url:'../index/index?gg=1'}); }, 1500);
       }
     });
   },

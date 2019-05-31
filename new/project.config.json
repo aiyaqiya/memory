@@ -13,8 +13,8 @@
 		"checkInvalidKey": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.7.0",
-	"appid": "wxa02e96e3bfd475de",
+	"libVersion": "2.5.0",
+	"appid": "wx4f6b226a68a2c8fd",
 	"projectname": "mytest",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -45,7 +45,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 3,
 			"list": [
 				{
 					"id": -1,
@@ -65,6 +65,13 @@
 					"id": -1,
 					"name": "lingj",
 					"pathName": "pages/lingj/lingj",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "canvas",
+					"pathName": "pages/canvas/canvas",
 					"query": "",
 					"scene": null
 				}
