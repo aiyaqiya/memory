@@ -6,14 +6,14 @@
 	"setting": {
 		"urlCheck": false,
 		"es6": true,
-		"postcss": true,
-		"minified": true,
+		"postcss": false,
+		"minified": false,
 		"newFeature": true,
 		"autoAudits": false,
 		"checkInvalidKey": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.5.0",
+	"libVersion": "2.7.1",
 	"appid": "wx4f6b226a68a2c8fd",
 	"projectname": "mytest",
 	"debugOptions": {
@@ -45,7 +45,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 5,
 			"list": [
 				{
 					"id": -1,
@@ -73,6 +73,20 @@
 					"name": "canvas",
 					"pathName": "pages/canvas/canvas",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "wish",
+					"pathName": "pages/wish/wish",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "首页参数",
+					"pathName": "pages/index/index",
+					"query": "gg=1",
 					"scene": null
 				}
 			]

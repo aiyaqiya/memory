@@ -13,6 +13,7 @@
 <view class="listk" style="display:{{loadOver}};background-image:url(http://www.twobyoung.com/ether/img/index/back.jpg);{{setWidthH}}">
   <view class="listd">
   <image src="http://www.twobyoung.com/ether/img/index/dz3.png" mode="widthFix" class="listz_dz3 {{musicCtrl}}" bind:touchstart="ctrlMusic"></image>
+  <image src="http://www.twobyoung.com/ether/img/wish/wishbut.png" mode="widthFix" class="listz_wish" style="display:{{wishStart}}" bindtap="makeWish"></image>
     <view class="listd_tit">
       <span style="background-image:url(http://www.twobyoung.com/ether/img/index/title.png);">欢迎参加记忆之声XXX活动</span>
     </view>
@@ -69,7 +70,7 @@
   
   <!--背景点缀-->
   <view class="listz">
-    <image src="http://www.twobyoung.com/ether/img/index/dz1.png" mode="widthFix" class="listz_dz1"></image>
+    <image src="http://www.twobyoung.com/ether/img/index/dz1.png" mode="widthFix" class="listz_dz1"  style="display:{{paopaoEnd}}"></image>
     <image src="http://www.twobyoung.com/ether/img/index/dz2.png" mode="widthFix" class="listz_dz2"></image>    
     <image src="http://www.twobyoung.com/ether/img/index/dz4.png" mode="widthFix" class="listz_dz4"></image>
     <image src="http://www.twobyoung.com/ether/img/index/dz5.png" mode="widthFix" class="listz_dz5"></image>
@@ -78,7 +79,7 @@
     <image src="http://www.twobyoung.com/ether/img/index/dz8.png" mode="widthFix" class="listz_dz8"></image>
     <image src="http://www.twobyoung.com/ether/img/index/dz5.png" mode="widthFix" class="listz_dz9"></image>
     <image src="http://www.twobyoung.com/ether/img/index/dz8.png" mode="widthFix" class="listz_dz10"></image>
-
+    
   </view>
   <!--色子-->
   <view class="shaizik" style="display:{{showShaizi}};">

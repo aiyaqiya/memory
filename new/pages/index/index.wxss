@@ -33,10 +33,11 @@ br{display:block;width:100%;height:0;}
 .listz{position:absolute;left:0;top:0;right:0;bottom:0;z-index:11;}
 .listz>image{position:absolute;z-index:11;}
 .listz_dz1{left:10rpx;bottom:10rpx;width:180rpx;opacity:0.5;animation:opacitytr 3s ease infinite;-webkit-animation:opacitytr 3s ease infinite;}
+.listz_wish{position:absolute;left:5%;bottom:25rpx;width:150rpx;animation:scaled 3s ease infinite;-webkit-animation:scaled 3s ease infinite;display:none;z-index:100;}
 .listz_dz2{right:15.3%;top:15%;width:80rpx;animation:opacitytr 3s ease infinite 2s;}
 .listz_dz3{position:absolute;right:10rpx;bottom:10rpx;width:120rpx;transform-origin:100% 100%;-webkit-transform-origin:100% 100%;}
 .listz_dz4{left:10%;top:10%;width:70rpx;z-index:9999;}
-.listz_dz5{left:20%;bottom:20rpx;width:80rpx;}
+.listz_dz5{left:30%;bottom:10rpx;width:80rpx;}
 .listz_dz6{left:38%;bottom:25%;width:40rpx;}
 .listz_dz7{left:65%;bottom:10%;width:40rpx;}
 .listz_dz8{left:75%;bottom:-8%;width:110rpx;animation:floorUp 20s linear infinite;-webkit-animation:floorUp 20s linear infinite;}
@@ -98,6 +99,10 @@ br{display:block;width:100%;height:0;}
   40%{-webkit-transform:rotate(-15deg);}
   50%{-webkit-transform:rotate(15deg);}
   100%{-webkit-transform:rotate(0deg);bottom:105%;}
+}
+@keyframes scaled{
+  0%{transform:scale(1,1);}
+  70%{transform:scale(1.2,1.2);}
 }
 /*骰子样式*/
 .shaizik{position:absolute;width:100%;height:100%;left:0;top:0;z-index:9999;background:rgba(0,0,0,0.5);}

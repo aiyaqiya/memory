@@ -2,9 +2,10 @@
   "pages": [
     "pages/index/index",
     "pages/video/vid",
-    "pages/mess/mess",
-    "pages/test/test",
-    "pages/lingj/lingj"    
+    "pages/mess/mess",    
+    "pages/lingj/lingj",
+    "pages/wish/wish",
+    "pages/pict/pict"
   ],  
   "window": {
     "backgroundTextStyle": "light",

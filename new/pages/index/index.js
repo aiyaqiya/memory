@@ -64,6 +64,11 @@ Page({
       "http://www.twobyoung.com/ether/img/laohj/background.png",
       "http://www.twobyoung.com/ether/img/index/share.jpg",
       "http://www.twobyoung.com/ether/img/index/sharehd.jpg",
+      "http://www.twobyoung.com/ether/img/wish/back.jpg",
+      "http://www.twobyoung.com/ether/img/wish/but.png",
+      "http://www.twobyoung.com/ether/img/wish/board.png",
+      "http://www.twobyoung.com/ether/img/wish/light.png",
+      "http://www.twobyoung.com/ether/img/wish/wishbut.png",
     ],
     allimgi: 0,
     allimgload:"0",
@@ -102,6 +107,8 @@ Page({
     userInfo: {},    
     hasUserInfo: false,
     laohjRuning:false,//老虎机正在转与否
+    wishStart:"none",//许愿按钮显示与否，
+    paopaoEnd:"block",//许愿开始，隐藏冒泡
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   onLoad: function () {
@@ -150,7 +157,9 @@ Page({
               isGuoGK:"block",
               isShowEnter:"none",
               isShowChouj:"block",
-              choujTimes: choujt//抽奖次数
+              choujTimes: choujt,//抽奖次数
+              paopaoEnd:"none",
+              wishStart:"block"
             });
           };
         that.setData({
@@ -520,9 +529,12 @@ Page({
   hideZhongj:function(){
     this.setData({
       isLaohjZhj: "none",
-      isLaohjJP:'',      
+      isLaohjJP:'',
       isLaohjLJ: ""
     });
+  },
+  makeWish:function(){//许愿  
+    wx.navigateTo({url:"../wish/wish"});
   }
 });
 /*
