@@ -13,26 +13,26 @@ Page({
     screenwidth:0,
     yourWish:"",
     wishes:[
-      "希望今年赚够一个亿",
-      "希望今年赚够二个亿",
-      "希望今年赚够三个亿",
-      "希望今年赚够四个亿",
-      "希望今年赚够五个亿",
-      "希望今年赚够六个亿",
-      "希望今年赚够七个亿",
-      "希望今年赚够八个亿",
-      "希望今年赚够九个亿",
-      "希望今年赚够十个亿",
-      "希望今年赚够十一个亿",
-      "希望今年赚够十二个亿",
-      "希望今年赚够十三个亿",
-      "希望今年赚够十四个亿",
-      "希望今年赚够十五个亿",
-      "希望今年赚够十六个亿",
-      "希望今年赚够十七个亿",
-      "希望今年赚够十八个亿",
-      "希望今年赚够十九个亿",
-      "希望今年赚够二十个亿"
+      {span:"",value:"希望今年赚够一个亿"},
+      {span:"",value:"希望今年赚够二个亿"},
+      {span:"",value:"希望今年赚够三个亿"},
+      {span:"",value:"希望今年赚够四个亿"},
+      {span:"",value:"希望今年赚够五个亿"},
+      {span:"",value:"希望今年赚够六个亿"},
+      {span:"",value:"希望今年赚够七个亿"},
+      {span:"",value:"希望今年赚够八个亿"},
+      {span:"",value:"希望今年赚够九个亿"},
+      {span:"",value:"希望今年赚够十个亿"},
+      {span:"",value:"希望今年赚够十一个亿"},
+      {span:"",value:"希望今年赚够十二个亿"},
+      {span:"",value:"希望今年赚够十三个亿"},
+      {span:"",value:"希望今年赚够十四个亿"},
+      {span:"",value:"希望今年赚够十五个亿"},
+      {span:"",value:"希望今年赚够十六个亿"},
+      {span:"",value:"希望今年赚够十七个亿"},
+      {span:"",value:"希望今年赚够十八个亿"},
+      {span:"",value:"希望今年赚够十九个亿"},
+      {span:"",value:"希望今年赚够二十个亿"}
     ],
     anis1:[],//动画的位置，清空就回0
     anis2:[],
@@ -91,11 +91,13 @@ Page({
         ti=i-this.data.wishes.length;
       }
       tarr[j] = {};
-      tarr[j].value = this.data.wishes[ti];
+      tarr[j].value = this.data.wishes[ti].value;
+      tarr[j].span=this.data.wishes[ti].span;
       var tl = Math.round(Math.random() * 1300);
       tarr[j].style = 'padding-left:' + tl + 'rpx;-webkit-transition:transform '+this.data.singTime/1000+'s linear;';
       tarrs[j]='-webkit-transform:translateX(-5100rpx);';
     }
+    //console.log(tarr);
     var tmpni = this.data.danmi;
     var tni =tmpni==1 ? 3:(tmpni==2 ? 4:(tmpni==3 ? 1:2));
     this.setData({
@@ -113,7 +115,7 @@ Page({
   },
   makeDanMu: function () {
   },
-  getYourWish:function(e){    
+  getYourWish:function(e){
       this.setData({
         yourWish: e.detail.value
       });
@@ -124,12 +126,17 @@ Page({
       return;
     }
     var tmparr=this.data.wishes;
-    tmparr.push(this.data.yourWish);
+    var tpush={};
+    tpush.value = this.data.yourWish;
+//【【【【设置自己许愿的特殊样式】】】】
+    tpush.span ="font-weight:bold;color:#f8dd47;font-size:36rpx;";
+    tmparr.push(tpush);
     this.setData({
       wishes:tmparr,
       yourWish:"",
       wishAble:false
     });
+  //console.log(tmparr);
     wx.showToast({
       title:"许愿成功~"
     });

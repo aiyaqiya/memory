@@ -1,4 +1,5 @@
 <!--pages/wish/wish.wxml-->
+<image src="http://www.twobyoung.com/ether/img/wish/xiaohuangji.gif" style="display:none;"></image>
 <view class="listk" style="background-image:url(http://www.twobyoung.com/ether/img/wish/back.jpg);{{setWidthH}}">
   <view class="backk">
       <image src="http://www.twobyoung.com/ether/img/wish/light.png" class="back_i1" mode="widthFix"></image>
@@ -14,22 +15,23 @@
     <image src="http://www.twobyoung.com/ether/img/wish/but.png" class="inpbut {{wishAble ? '':'unuseable'}}" bindtap="showInpk" mode="widthFix"></image> 
 
     <block wx:for="{{anis1}}" wx:key="ind">
-      <view class="danm" style="{{item.style}}{{style1[index]}}">{{item.value}}</view>
+      <view class="danm" style="{{item.style}}{{item.span}}{{style1[index]}}"><image src="http://www.twobyoung.com/ether/img/wish/xiaohuangji.gif" wx:if="{{item.span!=''}}"></image>{{item.value}}</view>
     </block>
     <block wx:for="{{anis2}}" wx:key="ind">
-      <view class="danm" style="{{item.style}}{{style2[index]}}">{{item.value}}</view>
+      <view class="danm" style="{{item.style}}{{item.span}}{{style2[index]}}"><image src="http://www.twobyoung.com/ether/img/wish/xiaohuangji.gif" wx:if="{{item.span!=''}}"></image>{{item.value}}</view>
     </block>
     <block wx:for="{{anis3}}" wx:key="ind">
-      <view class="danm" style="{{item.style}}{{style3[index]}}">{{item.value}}</view>
+      <view class="danm" style="{{item.style}}{{item.span}}{{style3[index]}}"><image src="http://www.twobyoung.com/ether/img/wish/xiaohuangji.gif" wx:if="{{item.span!=''}}"></image>{{item.value}}</view>
     </block>
      <block wx:for="{{anis4}}" wx:key="ind">
-      <view class="danm" style="{{item.style}}{{style4[index]}}">{{item.value}}</view>
+      <view class="danm" style="{{item.style}}{{item.span}}{{style4[index]}}"><image src="http://www.twobyoung.com/ether/img/wish/xiaohuangji.gif" wx:if="{{item.span!=''}}"></image>{{item.value}}</view>
     </block>
   </view>
   <view class="backbut" bindtap="backhome"><view>返回</view><view>首页</view></view>
 </view>
 
 <view class="inpuk" style="display:{{isShowInp}};">
+
   <view class="inpclose" bindtap="closeinp"></view>
     <view class="inpud" style="bottom:{{inputkBot}}rpx;">
       <input type="text" bindinput="getYourWish" maxlength="40" focus="{{getInpFocus}}" placeholder="请输入愿望，20字以内"/>

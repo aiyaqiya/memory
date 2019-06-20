@@ -1,1 +1,13 @@
 /* pages/pict/pict.wxss */
+page{background:#999;}
+.makepic{position:fixed;width:600rpx;height:600rpx;left:0;top:0;margin:auto;box-shadow:0 0 2px 1px rgba(0,0,0,0.1);z-index:99;background:#f0f0f0;visibility:hidden;}
+.makepiczz{position:fixed;width:600rpx;height:600rpx;left:0;top:0;margin:auto;z-index:100;background:#ffffff;visibility:hidden;}
+.loadk{position:fixed;width:100%;height:100%;background:#fff;left:0;top:0;z-index:99999;}
+.pintuk{position:fixed;width:600rpx;height:600rpx;right:87rpx;bottom:100rpx;margin:auto;background:#fff;z-index:999;box-shadow: 0 0 2px 1px rgba(0,0,0,0.2);border:5rpx solid #fff;}
+.pintu{position:absolute;width:180rpx;height:180rpx;transition:all 0.1s ease;-webkit-transition:all 0.1s ease;z-index:10;}
+.randombut{position:absolute;width:100rpx;top:87rpx;right:720rpx;height:50rpx;line-height:48rpx;font-size:26rpx;color:#fff;text-align:center;border-radius:10rpx;border:1rpx solid #fff;}
+.model{position:absolute;bottom:87rpx;right:720rpx;height:150rpx;width:150rpx;z-index:99;}
+/*背景图片*/
+.backimg{position:absolute;top:0;right:0;bottom:0;left:0;margin:auto;z-index:0;height:100%;min-width:100%;}
+/*游戏说明*/
+.shuom{width:100%;color:#fff;position:absolute;left:0;bottom:-70rpx;height:50rpx;line-height:20rpx;padding:5rpx 0;text-align:center;font-size:22rpx;opacity:0.7;}

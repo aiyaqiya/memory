@@ -1,2 +1,17 @@
 <!--pages/pict/pict.wxml-->
-<text>pages/pict/pict.wxml</text>
+
+<canvas canvas-id="makepic" class="makepic" width="{{cWidth}}" height="{{cHeight}}" style="display:{{isCanShow}}"></canvas>
+<canvas class="makepiczz" width="{{cWidth}}" height="{{cHeight}}" style="display:{{isCanShow}}"></canvas>
+<view class="loadk" style="display:{{isCanShow}}"></view>
+<view class="listk" style="{{setWidthH}}">
+  <image src="http://www.twobyoung.com/ether/img/wish/pintback.jpg" class="backimg" mode="aspectFill"></image>
+  <view class="randombut" bindtap="randomPos" style="display:{{isResetShow}};">重置</view>
+  <image src="{{timg.path}}" datasrc="{{timg.path}}" class="model" bindtap="viewImage"></image>
+  <view class="pintuk">
+    <block wx:for="{{cutImg}}" wx:key="inmd">    
+    
+      <image src="{{item}}" class="pintu" style="{{positions[imgPos[index].pos]+imgPos[index].width+imgPos[index].show}};" data-id="{{index}}" data-pos="{{imgPos[index].pos}}" bindtap="makeStep"></image>
+    </block>
+    <view class="shuom">点选拼图，将图片复原即可过关</view>
+  </view>
+</view>

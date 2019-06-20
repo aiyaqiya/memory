@@ -30,7 +30,8 @@
 }
 /*弹幕框*/
 .danmuk{position:absolute;width:100%;height:100%;z-index:99;left:0;top:0;background:rgba(0,0,0,0.2);}
-.danm{position:absolute;left:1334rpx;width:1700rpx;white-space:nowrap;overflow:visible;line-height:60rpx;height:60rpx;font-size:30rpx;letter-spacing:0;color:#fff;text-align:left;z-index:999;box-sizing:border-box;}
+.danm{position:absolute;left:1334rpx;width:1700rpx;white-space:nowrap;overflow:visible;line-height:60rpx;height:60rpx;font-size:34rpx;letter-spacing:0;color:#fff;text-align:left;z-index:999;box-sizing:border-box;}
+.danm image{display:block;width:60rpx;height:60rpx;float:left;margin-right:10rpx;}
 .danm:nth-of-type(8n+1){top:0;}
 .danm:nth-of-type(8n+2){top:60rpx;}
 .danm:nth-of-type(8n+3){top:120rpx;}

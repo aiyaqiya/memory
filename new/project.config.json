@@ -45,7 +45,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 6,
 			"list": [
 				{
 					"id": -1,
@@ -87,6 +87,12 @@
 					"name": "首页参数",
 					"pathName": "pages/index/index",
 					"query": "gg=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "拼图",
+					"pathName": "pages/pict/pict",
 					"scene": null
 				}
 			]

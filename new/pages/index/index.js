@@ -32,8 +32,12 @@ Page({
       "http://www.twobyoung.com/ether/img/shaizi/15.png",
       "http://www.twobyoung.com/ether/img/shaizi/16.png",
       "http://www.twobyoung.com/ether/img/shaizi/17.png",
+      "http://www.twobyoung.com/ether/img/shaizi/18.png",
+      "http://www.twobyoung.com/ether/img/shaizi/19.png",
+      "http://www.twobyoung.com/ether/img/shaizi/20.png",
       "http://www.twobyoung.com/ether/img/shaizi/zs.png",
       "http://www.twobyoung.com/ether/img/shaizi/ad.png",
+      "http://www.twobyoung.com/ether/img/shaizi/pt.png",
       "http://www.twobyoung.com/ether/img/index/logok.png",      
       "http://www.twobyoung.com/ether/img/index/logokac.png",
       "http://www.twobyoung.com/ether/img/logo/1.jpg",
@@ -69,6 +73,7 @@ Page({
       "http://www.twobyoung.com/ether/img/wish/board.png",
       "http://www.twobyoung.com/ether/img/wish/light.png",
       "http://www.twobyoung.com/ether/img/wish/wishbut.png",
+      "http://www.twobyoung.com/ether/img/wish/pintback.jpg"
     ],
     allimgi: 0,
     allimgload:"0",
@@ -76,7 +81,7 @@ Page({
     zhezhao:'block',//加载框的显示与否，以上都是加载框的数据
     atime:3000,
     numi:1,
-    aimg:17,
+    aimg:20,
     imgt:20,
     isTou:true,
     showShaizi:"none",//以上是色子的逻辑数据
@@ -124,9 +129,9 @@ Page({
     });
     //检测是否带参数，判断来源
     var canshu = this.getAllUrl(),tjia=0;
-    if (JSON.stringify(canshu) !== "{}") {
+    if(JSON.stringify(canshu) !== "{}"){
       //临时逻辑，完成一关关卡+1
-      console.log(canshu.gg)
+     // console.log(canshu.gg)
       if (canshu.gg) {
         tjia=1;
       }
@@ -268,8 +273,8 @@ Page({
     var that=this;
     if(this.data.atime<=0){
       //模拟数据
-      var moniData=[{name:'广告任务',value:"ad"},{name:"知识问答",value:"zs"}];
-      var obj=Math.random()>0.5 ? moniData[0]:moniData[1];
+      var moniData = [{ name: '广告任务', value: "ad" }, { name: "知识问答", value: "zs" }, { name: "拼图任务", value: "pt" }];
+      var obj = Math.random() < 0.33 ? moniData[0] : Math.random() < 0.67 ? moniData[1] : moniData[2];
       this.data.atime=2000;
       this.data.isTou=false;
   //【【后台获取目前要做的任务，展示给客户，需要提前请求；】】
@@ -288,8 +293,10 @@ Page({
           });
           if(obj.name=="广告任务"){
             wx.redirectTo({ url: "../video/vid" });
-          }else{
+          } else if (obj.name == "知识问答"){
             wx.navigateTo({ url: "../mess/mess" });
+          }else{
+            wx.navigateTo({ url: "../pict/pict" });
           }
         },2000);
         return;

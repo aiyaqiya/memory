@@ -45,10 +45,13 @@ Page({
     
     var that = this;
     wx.request({
-      url: "http://123.56.69.131/suport/index.php",
+      url: "http://47.92.115.105/internetResources/queryByType",
+      method:"POST",
+      data:{type:"1"},
       success: function (res) {
+        console.log(res);
         that.setData({
-          videoSrc: res.data,          
+          videoSrc: res.data.url,          
         });
         that.pauseVid();
         that.checkNetWork();
