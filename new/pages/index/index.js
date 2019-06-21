@@ -114,7 +114,9 @@ Page({
     laohjRuning:false,//老虎机正在转与否
     wishStart:"none",//许愿按钮显示与否，
     paopaoEnd:"block",//许愿开始，隐藏冒泡
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    musicUrl:"",
+    musics:[],
   },
   onLoad: function () {
     this.data.sys = wx.getSystemInfoSync();    
@@ -172,11 +174,31 @@ Page({
           });
       }
     });
-    
+    //请求所有音乐地址
+    wx.request({
+      url:"http://47.92.115.105/internetResources/queryByType",
+      data:{"type":0},
+      method:"post",
+      header:{
+        "Content-type":"application/x-www-form-urlencoded"
+      },
+      success:function(res){
+        //console.log(res.data.data);        
+        that.setData({
+          musics:res.data.data,
+          musicUrl: res.data.data[0].url
+        });
+        that.data.musi.src=that.data.musicUrl;
+      }
+    });
+    this.data.music=wx.createInnerAudioContext();
+  },
+  ctrlMusic: function () {
+
   },
   onReady:function(){
-    this.data.music=wx.createAudioContext("music");
-    this.data.music.play();
+    //this.data.music=wx.createAudioContext("music");
+    //this.data.music.play();
     //设置分享带转发详情信息
     wx.updateShareMenu({
       withShareTicket: true      
@@ -206,16 +228,7 @@ Page({
     const pages = getCurrentPages();
     const currentPage = pages[pages.length - 1];
     return currentPage.options;
-  },
-  ctrlMusic:function(){
-    if (this.data.isMusicPlay){
-      this.data.music.pause();
-      this.setData({ musicCtrl: "", isMusicPlay:false});
-    }else{
-      this.data.music.play();
-      this.setData({ musicCtrl: "musicac", isMusicPlay:true });
-    }
-  },
+  },  
   getCJTimes:function(){
     var that=this;
     wx.request({
@@ -542,6 +555,9 @@ Page({
   },
   makeWish:function(){//许愿  
     wx.navigateTo({url:"../wish/wish"});
+  },
+  makeMusic:function(){
+
   }
 });
 /*

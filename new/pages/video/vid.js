@@ -46,12 +46,15 @@ Page({
     var that = this;
     wx.request({
       url: "http://47.92.115.105/internetResources/queryByType",
-      method:"POST",
-      data:{type:"1"},
+      method:"post",
+      header: {
+        'content-Type':'application/x-www-form-urlencoded' // 默认值
+      },
+      data:{"type":1},
       success: function (res) {
         console.log(res);
         that.setData({
-          videoSrc: res.data.url,          
+          videoSrc: res.data.data[0].url,          
         });
         that.pauseVid();
         that.checkNetWork();

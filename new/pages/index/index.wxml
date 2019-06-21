@@ -215,5 +215,5 @@
 </view>
 <!--音乐-->
 <view class="musicplay" bind:touchstart="playmusic">
-  <audio src="http://123.56.69.131/ether/file/mus.mp3" autoplay loop id="music"></audio>
+  
 </view>

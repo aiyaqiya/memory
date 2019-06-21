@@ -5,7 +5,14 @@
 <view class="loadk" style="display:{{isCanShow}}"></view>
 <view class="listk" style="{{setWidthH}}">
   <image src="http://www.twobyoung.com/ether/img/wish/pintback.jpg" class="backimg" mode="aspectFill"></image>
-  <view class="randombut" bindtap="randomPos" style="display:{{isResetShow}};">重置</view>
+  <view class="randombut" bindtap="randomPos" style="display:{{isResetShow}};">
+    <image src="http://www.twobyoung.com/ether/img/wish/reset.png"></image>
+    重置
+  </view>
+  <view class="exitbut" bindtap="backhome">
+    <image src="http://www.twobyoung.com/ether/img/wish/exit.png"></image>
+    退出任务
+  </view>
   <image src="{{timg.path}}" datasrc="{{timg.path}}" class="model" bindtap="viewImage"></image>
   <view class="pintuk">
     <block wx:for="{{cutImg}}" wx:key="inmd">    

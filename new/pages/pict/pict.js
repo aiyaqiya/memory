@@ -208,6 +208,17 @@ Page({
       urls:[tsrc]
     });
   },
+  backhome:function(){
+    wx.showModal({
+      title:"退出任务",
+      content:"您确定要退出任务么？",
+      success:function(e){        
+        if(e.confirm){
+          wx.navigateTo({url:"../index/index"});
+        }else if(e.cancel){}
+      }
+    });
+  },
   /**
    * 生命周期函数--监听页面显示
    */

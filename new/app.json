@@ -11,8 +11,7 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor":"#fff",
     "navigationBarTitleText": "记忆之声",
-    "navigationBarTextStyle": "black",
-    "navigationStyle":"custom"
+    "navigationBarTextStyle": "black"
   },
   "sitemapLocation":"sitemap.json",
   "permission": {
